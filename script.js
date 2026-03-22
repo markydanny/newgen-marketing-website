@@ -360,6 +360,8 @@ Hi MAD Marketing, I'd like to get started with this package. Please let me know 
                 thirtyRadio.closest('.custom-radio').classList.add('highlight-package');
             }
             
+            // Recalculate package totals after interacting with PPW buttons
+            calculatePackage();
         }
     }
 }
