@@ -426,3 +426,5 @@ animateStars();
 window.addEventListener('resize', () => {
     initStars();
 });
+
+
