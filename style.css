@@ -705,6 +705,8 @@ section {
 .platform-card {
     cursor: pointer;
     position: relative;
+    display: block;
+    height: 100%;
 }
 
 .platform-card input[type="checkbox"] {
@@ -727,9 +729,11 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     gap: 15px; /* Changed from 10px */
     transition: all 0.3s ease;
     color: var(--text-muted);
+    height: 100%;
 }
 
 .platform-content i {
@@ -765,11 +769,11 @@ section {
 /* Posts Per Week Controls */
 .ppw-control {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-top: 5px;
-    gap: 15px;
+    margin-top: auto;
+    gap: 5px 15px;
     background: transparent;
     border-radius: 12px;
     padding: 6px 10px;
@@ -848,6 +852,12 @@ section {
     border-color: var(--accent-blue);
     font-weight: 600;
     box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+.custom-radio.highlight-package .radio-label {
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+    background: rgba(138, 43, 226, 0.1);
 }
 
 .custom-checkbox {

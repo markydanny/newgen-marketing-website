@@ -309,7 +309,7 @@ Short-form Video: ${hasVideo}
 Add-Ons: ${selectedAddons.length > 0 ? selectedAddons.join(', ') : 'None'}
 ---------------------------------
 
-Hi MAD Marketing, I'd like to get started with this package. Please let me know what the next steps are!`;
+Hi Newgen Marketing, I'd like to get started with this package. Please let me know what the next steps are!`;
 
         // Pre-fill form
         const serviceSelect = document.getElementById('service');
