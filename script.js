@@ -54,6 +54,16 @@ document.querySelectorAll('section:not(.hero)').forEach(section => {
 });
 
 // =========================================
+// Scroll-based Color Animation for Dynamic Text
+// =========================================
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    document.documentElement.style.setProperty('--scroll-perc', scrollPercent + '%');
+});
+
+// =========================================
 // Package Builder & Consultant Logic
 // =========================================
 const packageForm = document.getElementById('package-form');
@@ -309,7 +319,7 @@ Short-form Video: ${hasVideo}
 Add-Ons: ${selectedAddons.length > 0 ? selectedAddons.join(', ') : 'None'}
 ---------------------------------
 
-Hi MAD Marketing, I'd like to get started with this package. Please let me know what the next steps are!`;
+Hi Mad Marketing, I'd like to get started with this package. Please let me know what the next steps are!`;
 
         // Pre-fill form
         const serviceSelect = document.getElementById('service');
