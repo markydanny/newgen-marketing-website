@@ -2,27 +2,28 @@
    Global Variables & Reset
    ========================================= */
 :root {
-    /* Color Palette - Sleek Dark Mode with Vibrant Accents */
-    --bg-dark: #0a0a0f;           /* Very deep charcoal/almost black */
-    --bg-surface: #14141e;        /* Slightly lighter surface for cards */
-    --accent-blue: #00f0ff;       /* Electric blue accent */
-    --accent-purple: #8a2be2;     /* Neon purple accent */
+    /* Color Palette - Premium Dynamic Dark Mode */
+    --bg-dark: #0A0D14;           
+    --bg-surface: #121620;        
+    --accent-blue: #00f0ff;       
+    --accent-purple: #8a2be2;     
     --text-primary: #ffffff;
-    --text-muted: #a0a0b0;
+    --text-muted: #94a3b8;
+    --border-color: rgba(255, 255, 255, 0.05);
 
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
 
-    /* Effects */
-    --glass-bg: rgba(20, 20, 30, 0.6);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    /* Effects - Soft & Premium */
+    --glass-bg: #121620;
+    --glass-border: var(--border-color);
+    --glass-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 
     /* Typography */
-    --font-main: 'Montserrat', sans-serif;
+    --font-main: 'Inter', sans-serif;
     
     /* Spacing */
-    --section-padding: 100px 5%;
+    --section-padding: 120px 5%;
 }
 
 * {
@@ -47,8 +48,9 @@ body {
    Typography
    ========================================= */
 h1, h2, h3, h4 {
-    font-weight: 800;
-    line-height: 1.2;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
 }
 
 p {
@@ -62,43 +64,54 @@ p {
     background-clip: text;
 }
 
+.dynamic-text {
+    background: linear-gradient(90deg, var(--text-primary) 0%, var(--accent-blue) 33%, var(--accent-purple) 66%, var(--text-primary) 100%);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-position: var(--scroll-perc, 0%) 0;
+}
+
 /* =========================================
    Components & Utilities
    ========================================= */
 .btn-primary {
     display: inline-block;
-    padding: 15px 35px;
-    background: var(--gradient-primary);
-    color: var(--text-primary);
+    padding: 16px 32px;
+    background: var(--text-primary);
+    color: var(--bg-dark);
     text-decoration: none;
     font-weight: 600;
-    border-radius: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: none;
+    border-radius: 8px;
+    border: 1px solid var(--text-primary);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
+    font-size: 1rem;
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 240, 255, 0.2);
+    background: transparent;
+    color: var(--text-primary);
 }
 
 .btn-primary-sm {
     display: inline-block;
-    padding: 10px 25px;
-    background: transparent;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.05);
     color: var(--text-primary);
     text-decoration: none;
-    font-weight: 600;
-    border-radius: 30px;
-    border: 2px solid var(--accent-blue);
-    transition: all 0.3s ease;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.9rem;
 }
 
 .btn-primary-sm:hover {
-    background: var(--accent-blue);
+    border-color: var(--text-primary);
+    background: var(--text-primary);
     color: var(--bg-dark);
-    box-shadow: 0 5px 15px rgba(0, 240, 255, 0.3);
 }
 
 /* =========================================
@@ -109,15 +122,13 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 5%;
+    padding: 24px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(10, 10, 15, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: var(--bg-dark);
     z-index: 1000;
-    border-bottom: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .logo {
@@ -208,48 +219,24 @@ p {
 
 .btn-secondary {
     display: inline-block;
-    padding: 15px 35px;
-    background: var(--glass-bg);
+    padding: 16px 32px;
+    background: transparent;
     color: var(--text-primary);
     text-decoration: none;
     font-weight: 600;
-    border-radius: 30px;
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1rem;
 }
 
 .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(0, 240, 255, 0.5);
+    background: rgba(0, 240, 255, 0.05);
     transform: translateY(-2px);
 }
 
-/* Abstract Glow Effects */
-.glow {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    z-index: 1;
-    opacity: 0.5;
-    animation: drift 10s infinite alternate ease-in-out;
-}
-
-.glow-1 {
-    width: 400px;
-    height: 400px;
-    background: var(--accent-blue);
-    top: -100px;
-    left: -100px;
-}
-
-.glow-2 {
-    width: 300px;
-    height: 300px;
-    background: var(--accent-purple);
-    bottom: 10%;
-    right: -50px;
-    animation-delay: -5s;
-}
+/* Glow effects removed */
 
 /* Animations */
 @keyframes fadeUp {
@@ -260,15 +247,6 @@ p {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-@keyframes drift {
-    from {
-        transform: translate(0, 0) scale(1);
-    }
-    to {
-        transform: translate(50px, 30px) scale(1.1);
     }
 }
 
@@ -308,30 +286,79 @@ section {
     position: relative;
 }
 
-.services-grid {
+.bento-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+.bento-large {
+    grid-column: span 2;
+}
+
+.bento-tall {
+    grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 900px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    .bento-large, .bento-tall {
+        grid-column: span 1;
+        grid-row: auto;
+    }
+}
+
 .service-card {
     background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
     padding: 40px 30px;
-    text-align: center;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    text-align: left;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 240, 255, 0.15);
+    transform: translateY(-5px) scale(1.02);
     border-color: rgba(0, 240, 255, 0.3);
+    box-shadow: var(--glass-shadow);
+}
+
+/* Cursor Spotlight Hover Effect */
+.group-hover-spotlight {
+    position: relative;
+    overflow: hidden;
+}
+
+.group-hover-spotlight::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(
+        800px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+        rgba(255, 255, 255, 0.06),
+        transparent 40%
+    );
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.group-hover-spotlight:hover::before {
+    opacity: 1;
+}
+
+.group-hover-spotlight > * {
+    position: relative;
+    z-index: 1;
 }
 
 .service-icon {
@@ -393,24 +420,42 @@ section {
     justify-content: center;
 }
 
-.image-placeholder {
+.structural-placeholder {
     width: 100%;
     max-width: 400px;
     aspect-ratio: 1;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 30px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 50px rgba(138, 43, 226, 0.2);
-    animation: float 6s ease-in-out infinite;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
+.placeholder-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.placeholder-content h4 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.placeholder-content p {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.accent-icon {
+    font-size: 3rem;
+    color: var(--text-primary);
+    margin-bottom: 20px;
 }
 
 @media (max-width: 900px) {
@@ -479,15 +524,12 @@ section {
 }
 
 .pricing-card {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
     padding: 40px 30px;
-    text-align: center;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    text-align: left;
+    transition: all 0.2s ease;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -495,8 +537,7 @@ section {
 }
 
 .pricing-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(138, 43, 226, 0.15);
+    border-color: var(--text-primary);
 }
 
 .pricing-card.popular {
@@ -508,8 +549,8 @@ section {
     position: absolute;
     top: 20px;
     right: -35px;
-    background: var(--gradient-primary);
-    color: white;
+    background: var(--text-primary);
+    color: var(--bg-dark);
     padding: 5px 40px;
     font-size: 0.8rem;
     font-weight: 600;
@@ -597,11 +638,10 @@ section {
 }
 
 .addon-card, .tiktok-info {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
     padding: 30px;
-    backdrop-filter: blur(10px);
 }
 
 .addon-card h4, .tiktok-info h4 {
@@ -644,12 +684,10 @@ section {
 }
 
 .builder-selections, .builder-results {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
     padding: 40px;
-    box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(10px);
 }
 
 .builder-selections h3, .builder-results h3 {
@@ -681,9 +719,9 @@ section {
 .form-group input[type="number"] {
     width: 100px;
     padding: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
     color: white;
     font-size: 1rem;
     outline: none;
@@ -716,15 +754,13 @@ section {
 }
 
 .platform-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(0, 240, 255, 0.5);
-    box-shadow: 0 5px 15px rgba(0, 240, 255, 0.1);
+    border-color: var(--text-primary);
 }
 
 .platform-content {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
     padding: 15px;
     display: flex;
     flex-direction: column;
@@ -756,7 +792,6 @@ section {
     background: rgba(0, 240, 255, 0.1);
     border-color: var(--accent-blue);
     color: var(--text-primary);
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
 }
 
 .platform-card input:checked + .platform-content i {
@@ -775,7 +810,7 @@ section {
     margin-top: auto;
     gap: 5px 15px;
     background: transparent;
-    border-radius: 12px;
+    border-radius: 0;
     padding: 6px 10px;
     width: 100%;
 }
@@ -837,26 +872,24 @@ section {
 }
 
 .radio-label {
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 30px;
+    padding: 12px 24px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
     color: var(--text-muted);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     user-select: none;
 }
 
 .custom-radio input:checked ~ .radio-label {
-    background: var(--accent-blue);
+    background: var(--text-primary);
     color: var(--bg-dark);
-    border-color: var(--accent-blue);
+    border-color: var(--text-primary);
     font-weight: 600;
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
 }
 
 .custom-radio.highlight-package .radio-label {
     border-color: var(--accent-purple);
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
     background: rgba(138, 43, 226, 0.1);
 }
 
@@ -887,26 +920,25 @@ section {
 .checkbox-box {
     height: 22px;
     width: 22px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
     margin-right: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s;
+    transition: all 0.2s;
 }
 
 .custom-checkbox input:checked ~ .checkbox-box {
-    background-color: var(--accent-purple);
-    border-color: var(--accent-purple);
-    box-shadow: 0 0 10px rgba(138, 43, 226, 0.4);
+    background-color: var(--text-primary);
+    border-color: var(--text-primary);
 }
 
 .custom-checkbox input:checked ~ .checkbox-box:after {
     content: '\f00c';
     font-family: 'FontAwesome';
-    color: white;
+    color: var(--bg-dark);
     font-size: 12px;
 }
 
@@ -916,11 +948,11 @@ section {
 
 /* Results Panel Styling */
 .price-estimate {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
-    padding: 20px;
+    background: var(--bg-dark);
+    border-radius: 0;
+    padding: 30px;
     margin-bottom: 30px;
-    border: 1px solid rgba(0, 240, 255, 0.2);
+    border: 1px solid var(--border-color);
 }
 
 .estimate-label {
@@ -1036,14 +1068,13 @@ section {
 .tiktok-info-container {
     max-width: 1200px;
     margin: 0 auto;
-    background: var(--glass-bg);
-    border: 1px solid rgba(0, 240, 255, 0.3);
-    border-radius: 20px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
     padding: 30px 40px;
     display: flex;
     align-items: center;
     gap: 30px;
-    box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
 }
 
 .tiktok-large-icon {
@@ -1082,12 +1113,10 @@ section {
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
-    background: var(--glass-bg);
+    background: var(--bg-surface);
     padding: 40px;
-    border-radius: 20px;
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(10px);
+    border-radius: 0;
+    border: 1px solid var(--border-color);
 }
 
 .input-group {
@@ -1100,9 +1129,9 @@ section {
 .input-group select {
     width: 100%;
     padding: 15px 20px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
     color: var(--text-primary);
     font-size: 1rem;
     font-family: inherit;
@@ -1162,8 +1191,8 @@ section {
    ========================================= */
 footer {
     padding: 40px 5%;
-    background: #050508;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--bg-dark);
+    border-top: 1px solid var(--border-color);
 }
 
 .footer-content {
@@ -1225,11 +1254,47 @@ footer {
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(10, 10, 15, 0.95);
-        backdrop-filter: blur(10px);
+        background: var(--bg-dark);
+        border-bottom: 1px solid var(--border-color);
         padding: 20px 0;
         border-bottom: 1px solid var(--glass-border);
     }
 }
 
+/* =========================================
+   Light Mode Support (System Prefs)
+   ========================================= */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-dark: #f8fafc;           
+        --bg-surface: #ffffff;        
+        --accent-blue: #0ea5e9;       
+        --accent-purple: #7c3aed;     
+        --text-primary: #0f172a;
+        --text-muted: #64748b;
+        --border-color: rgba(0, 0, 0, 0.1);
 
+        --glass-bg: #ffffff;
+        --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Adjust specific components for light mode contrast */
+    .structural-placeholder {
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.00));
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .platform-card input:checked + .platform-content {
+        background: rgba(14, 165, 233, 0.1);
+        box-shadow: none;
+    }
+    
+    .price-estimate {
+        background: #f1f5f9;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    footer {
+        background: #f1f5f9;
+    }
+}

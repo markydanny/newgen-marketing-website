@@ -31,10 +31,10 @@
 
     <title>MAD Marketing | Social Media & Web Development</title>
     <link rel="icon" type="image/png" href="favicon.png">
-    <!-- Google Fonts: Montserrat for a clean, modern look -->
+    <!-- Google Fonts: Inter for an editorial, high-end look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -63,8 +63,8 @@
         <!-- Hero Section -->
         <section id="home" class="hero">
             <div class="hero-content">
-                <h1 class="hero-title">Elevate Your <span class="text-gradient">Digital Presence</span></h1>
-                <p class="hero-subtitle" style="margin-bottom: 15px; font-weight: 500; color: var(--accent-blue);">Our
+                <h1 class="hero-title">Elevate Your <span class="dynamic-text">Digital Presence</span></h1>
+                <p class="hero-subtitle" style="margin-bottom: 15px; font-weight: 500; color: var(--text-primary);">Our
                     goal is to help small businesses look more professional online.</p>
                 <p class="hero-subtitle" style="font-size: 1.1rem;">Next-generation social media management and
                     high-converting web experiences
@@ -75,46 +75,54 @@
                 </div>
             </div>
 
-            <!-- Abstract Background Elements -->
-            <div class="glow glow-1"></div>
-            <div class="glow glow-2"></div>
         </section>
 
         <!-- Services Section -->
         <section id="services" class="services">
             <div class="section-header">
-                <h2>Our <span class="text-gradient">Services</span></h2>
+                <h2>Our <span class="dynamic-text">Services</span></h2>
                 <p>Comprehensive digital solutions to scale your business.</p>
             </div>
 
-            <div class="services-grid">
-                <!-- Service Card 1 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fa-solid fa-hashtag text-gradient"></i>
-                    </div>
-                    <h3>Social Media Management</h3>
-                    <p>We craft, schedule, and engage with high-quality photo and video content across the platforms
-                        your audience uses most.</p>
-                </div>
-
-                <!-- Service Card 2 -->
-                <div class="service-card">
+            <div class="bento-grid">
+                <div class="service-card bento-large group-hover-spotlight">
                     <div class="service-icon">
                         <i class="fa-solid fa-code text-gradient"></i>
                     </div>
                     <h3>Web Development</h3>
-                    <p>Stunning, high-converting websites optimized for speed and built to turn your visitors into
-                        long-term clients.</p>
+                    <p>Stunning, high-converting websites optimized for speed and built to turn your visitors into long-term clients. We use cutting-edge responsive architectures to ensure flawless cross-device performance.</p>
                 </div>
 
+                <div class="service-card bento-tall group-hover-spotlight">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-hashtag text-gradient"></i>
+                    </div>
+                    <h3>Social Media</h3>
+                    <p>We craft, schedule, and engage with high-quality photo and video content across the platforms your audience uses most, driving authentic growth and engagement.</p>
+                </div>
+
+                <div class="service-card bento-small group-hover-spotlight">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-chart-line text-gradient"></i>
+                    </div>
+                    <h3>Analytics</h3>
+                    <p>Real-time data tracking and performance insights.</p>
+                </div>
+
+                <div class="service-card bento-small group-hover-spotlight">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-magnifying-glass text-gradient"></i>
+                    </div>
+                    <h3>SEO Mastery</h3>
+                    <p>Dominate search rankings and drive organic traffic.</p>
+                </div>
             </div>
         </section>
 
         <!-- About Section -->
         <section id="about" class="about">
             <div class="about-content">
-                <h2>Why Choose <span class="text-gradient">Newgen</span>?</h2>
+                <h2>Why Choose <span class="dynamic-text">Newgen</span>?</h2>
                 <p>We believe in next-generation solutions for modern businesses. Our approach combines data-driven
                     strategy with stunning visual aesthetics. Whether it's growing your social media presence or
                     developing a lightning-fast web application, we don't just deliver services—we deliver measurable
@@ -126,9 +134,12 @@
                 </ul>
             </div>
             <div class="about-image">
-                <div class="image-placeholder">
-                    <!-- Placeholder for an image, will be styled as a glowing box for now -->
-                    <i class="fa-solid fa-rocket text-gradient" style="font-size: 5rem;"></i>
+                <div class="structural-placeholder">
+                    <div class="placeholder-content">
+                        <i class="fa-solid fa-chart-line accent-icon"></i>
+                        <h4>Data-Driven Results</h4>
+                        <p>Analytics tracked continuously</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -136,12 +147,16 @@
         <!-- Web Development Section -->
         <section id="web-dev" class="web-dev">
             <div class="web-dev-image">
-                <div class="image-placeholder">
-                    <i class="fa-solid fa-laptop-code text-gradient" style="font-size: 5rem;"></i>
+                <div class="structural-placeholder">
+                    <div class="placeholder-content">
+                        <i class="fa-solid fa-laptop-code accent-icon"></i>
+                        <h4>Responsive Architecture</h4>
+                        <p>Built for all devices</p>
+                    </div>
                 </div>
             </div>
             <div class="web-dev-content">
-                <h2>Custom <span class="text-gradient">Website Building</span></h2>
+                <h2>Custom <span class="dynamic-text">Website Building</span></h2>
                 <p>Your website is often the first impression customers have of your business, and our company is
                     dedicated to making that impression count. We focus on creating modern, professional, and
                     user-friendly websites that not only look great but are designed to help your business grow. By
@@ -170,7 +185,7 @@
         <!-- Package Builder & Consultant Section -->
         <section id="package-builder" class="package-builder">
             <div class="section-header">
-                <h2>Build Your <span class="text-gradient">Package</span></h2>
+                <h2>Build Your <span class="dynamic-text">Package</span></h2>
                 <p>Use our AI-consultant tool to customize your digital strategy and see your real-time Marketing
                     Strength Score.</p>
             </div>

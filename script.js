@@ -367,66 +367,51 @@ Hi MAD Marketing, I'd like to get started with this package. Please let me know 
 }
 
 // =========================================
-// Starfield Background
+// Dynamic Scroll Color Shift
 // =========================================
-const canvas = document.createElement("canvas");
-const ctx = canvas.getContext("2d");
-canvas.id = "stars-canvas";
-canvas.style.position = "fixed";
-canvas.style.top = "0";
-canvas.style.left = "0";
-canvas.style.width = "100%";
-canvas.style.height = "100%";
-canvas.style.zIndex = "-1";
-canvas.style.pointerEvents = "none";
-document.body.prepend(canvas);
-
-let width, height;
-let stars = [];
-
-function initStars() {
-    width = window.innerWidth;
-    height = window.innerHeight;
-    canvas.width = width;
-    canvas.height = height;
-    stars = [];
-    // Calculate number of stars based on screen size
-    const numStars = Math.floor((width * height) / 2000);
-    for (let i = 0; i < numStars; i++) {
-        stars.push({
-            x: Math.random() * width,
-            y: Math.random() * height,
-            radius: Math.random() * 1.5 + 0.2, // Random size between 0.2 and 1.7
-            opacity: Math.random(),
-            speed: (Math.random() * 0.02) + 0.005 // Random twinkling speed
-        });
-    }
+function updateScrollProgress() {
+    // Use robust cross-browser scroll calculations
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const clientHeight = document.documentElement.clientHeight;
+    
+    let scrollPercent = scrollTop / (scrollHeight - clientHeight);
+    if (isNaN(scrollPercent)) scrollPercent = 0;
+    
+    // Output a direct percentage string to ensure CSS parses it correctly
+    document.documentElement.style.setProperty('--scroll-perc', (scrollPercent * 100) + '%');
 }
 
-function animateStars() {
-    ctx.clearRect(0, 0, width, height);
-    stars.forEach(star => {
-        // Update opacity for twinkling effect
-        star.opacity += star.speed;
-        if (star.opacity > 1 || star.opacity < 0.1) {
-            star.speed = -star.speed;
-        }
-        
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
-        ctx.fill();
+// Initial calculation and event listener
+updateScrollProgress();
+window.addEventListener('scroll', updateScrollProgress, { passive: true });
+
+// =========================================
+// Innovative Interactions
+// =========================================
+
+// 1. Cursor Spotlight Tracking
+document.querySelectorAll('.group-hover-spotlight').forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
     });
-    requestAnimationFrame(animateStars);
-}
-
-// Initialize and start animation
-initStars();
-animateStars();
-
-// Re-initialize on window resize
-window.addEventListener('resize', () => {
-    initStars();
 });
 
-
+// 2. Magnetic Buttons
+document.querySelectorAll('.btn-primary').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        // Limit movement to max 10px
+        btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+    });
+    
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = `translate(0px, 0px)`;
+    });
+});
