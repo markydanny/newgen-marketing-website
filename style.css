@@ -3,19 +3,19 @@
    ========================================= */
 :root {
     /* Color Palette - Premium Dynamic Dark Mode */
-    --bg-dark: #0f172a;           
-    --bg-surface: #1e293b;        
-    --accent-blue: #3b82f6;       
-    --accent-purple: #8b5cf6;     
+    --bg-dark: #0a0a0a;           
+    --bg-surface: #111111;        
+    --accent-blue: #d4af37;       
+    --accent-purple: #f3e5ab;     
     --text-primary: #ffffff;
     --text-muted: #94a3b8;
-    --border-color: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.08);
 
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
 
     /* Effects - Soft & Premium */
-    --glass-bg: #1e293b;
+    --glass-bg: rgba(20, 20, 20, 0.6);
     --glass-border: var(--border-color);
     --glass-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 
@@ -65,7 +65,10 @@ p {
 }
 
 .dynamic-text {
-    color: var(--accent-blue);
+    background: linear-gradient(90deg, #fff 0%, var(--accent-blue) 50%, var(--accent-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: 700;
 }
 
@@ -192,7 +195,9 @@ p {
     justify-content: center;
     text-align: center;
     padding: 0 5%;
-    overflow: hidden; /* Hide glowing orbs if they spill out */
+    overflow: hidden;
+    background: radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(243, 229, 171, 0.03) 0%, transparent 40%);
 }
 
 .hero-content {
@@ -235,8 +240,8 @@ p {
 }
 
 .btn-secondary:hover {
-    border-color: rgba(0, 240, 255, 0.5);
-    background: rgba(0, 240, 255, 0.05);
+    border-color: var(--accent-blue);
+    background: rgba(212, 175, 55, 0.05);
     transform: translateY(-2px);
 }
 
@@ -312,12 +317,30 @@ section {
     text-align: left;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.5s ease-in-out;
+}
+
+.service-card:hover::after {
+    left: 150%;
 }
 
 .service-card:hover {
     transform: translateY(-3px);
-    border-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: var(--accent-blue);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* Cursor Spotlight Hover Effect */
