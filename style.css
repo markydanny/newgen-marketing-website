@@ -124,9 +124,7 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: #000000;
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
 }
