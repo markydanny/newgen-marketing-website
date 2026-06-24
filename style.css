@@ -157,7 +157,7 @@ p {
 }
 
 .nav-links a:not(.btn-primary-sm) {
-    color: var(--text-primary);
+    color: #ffffff;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
@@ -1173,6 +1173,7 @@ section {
 footer {
     padding: 40px 5%;
     background: #000000;
+    color: #ffffff;
     border-top: 1px solid var(--border-color);
 }
 
@@ -1192,7 +1193,7 @@ footer {
 }
 
 .social-links a {
-    color: var(--text-muted);
+    color: #999999;
     font-size: 1.5rem;
     transition: color 0.3s ease;
 }
@@ -1247,36 +1248,51 @@ footer {
    ========================================= */
 @media (prefers-color-scheme: light) {
     :root {
-        --bg-dark: #f8fafc;           
+        --bg-dark: #fafafa;           
         --bg-surface: #ffffff;        
-        --accent-blue: #0ea5e9;       
-        --accent-purple: #7c3aed;     
-        --text-primary: #0f172a;
-        --text-muted: #64748b;
+        --accent-blue: #c5a034;       
+        --accent-purple: #78623b;     
+        --text-primary: #0a0a0a;
+        --text-muted: #666666;
         --border-color: rgba(0, 0, 0, 0.1);
 
-        --glass-bg: #ffffff;
+        --glass-bg: rgba(255, 255, 255, 0.9);
         --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
 
-    /* Adjust specific components for light mode contrast */
     .corporate-img {
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    .platform-card input:checked + .platform-content {
-        background: rgba(14, 165, 233, 0.1);
-        box-shadow: none;
     }
     
     .price-estimate {
         background: #f1f5f9;
         border: 1px solid rgba(0, 0, 0, 0.1);
     }
-    
-    footer {
-        background: #f1f5f9;
-    }
+}
+
+.floating-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    color: white;
 }
 
 /* =========================================
